@@ -136,6 +136,8 @@ release: clean all test
 	git archive --format=tar --prefix=batteries-$(VERSION)/ HEAD \
 	  | gzip > batteries-$(VERSION).tar.gz
 
+tags:
+	true
 
 ##
 ## Magic to detect which version of camomile is installed 

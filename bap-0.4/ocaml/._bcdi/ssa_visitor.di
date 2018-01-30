@@ -1,1 +1,1 @@
-ssa_visitor.cmi: type.cmi ssa.cmo cfg.cmi
+ssa_visitor.cmi : type.cmi ssa.cmo cfg.cmi

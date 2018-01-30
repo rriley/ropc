@@ -13,6 +13,7 @@ type token =
   | EOF
 
 open Parsing;;
+let _ = parse_error;;
 let yytransl_const = [|
   259 (* SEMICOLON *);
   260 (* LBRACKET *);
@@ -159,7 +160,7 @@ let yyact = [|
     Obj.repr(
 # 22 "stp_grammar.mly"
                             ( Some(_1) )
-# 163 "stp_grammar.ml"
+# 164 "stp_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'goodresult) in
@@ -167,20 +168,20 @@ let yyact = [|
     Obj.repr(
 # 23 "stp_grammar.mly"
                             ( Some(_2) )
-# 171 "stp_grammar.ml"
+# 172 "stp_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'badresult) in
     Obj.repr(
 # 24 "stp_grammar.mly"
                 ( None )
-# 178 "stp_grammar.ml"
+# 179 "stp_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 28 "stp_grammar.mly"
                 ( [] )
-# 184 "stp_grammar.ml"
+# 185 "stp_grammar.ml"
                : 'assertions))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'assertion) in
@@ -188,7 +189,7 @@ let yyact = [|
     Obj.repr(
 # 29 "stp_grammar.mly"
                                    ( _1 :: _3 )
-# 192 "stp_grammar.ml"
+# 193 "stp_grammar.ml"
                : 'assertions))
 ; (fun __caml_parser_env ->
     let _3 = (Parsing.peek_val __caml_parser_env 3 : string) in
@@ -196,19 +197,19 @@ let yyact = [|
     Obj.repr(
 # 33 "stp_grammar.mly"
                                          ( (_3, _5) )
-# 200 "stp_grammar.ml"
+# 201 "stp_grammar.ml"
                : 'assertion))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 37 "stp_grammar.mly"
                  ( )
-# 206 "stp_grammar.ml"
+# 207 "stp_grammar.ml"
                : 'goodresult))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 41 "stp_grammar.mly"
                ( )
-# 212 "stp_grammar.ml"
+# 213 "stp_grammar.ml"
                : 'badresult))
 (* Entry main *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

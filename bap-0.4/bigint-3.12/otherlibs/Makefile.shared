@@ -21,7 +21,7 @@ include $(ROOTDIR)/config/Makefile
 # Compilation options
 CC=$(BYTECC)
 CAMLRUN=ocamlrun
-COMPFLAGS=-warn-error A -g $(EXTRACAMLFLAGS)
+COMPFLAGS=-g $(EXTRACAMLFLAGS)
 MKLIB=ocamlmklib
 
 # Variables to be defined by individual libraries:

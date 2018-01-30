@@ -1,2 +1,2 @@
-libbfd.cmo: libbfd.cmi
-libbfd.cmx: libbfd.cmi
+libbfd.cmo : libbfd.cmi
+libbfd.cmx : libbfd.cmi

@@ -55,9 +55,8 @@ let _ = dispatch begin function
 
 (* Causes build to fail on armel under ocaml 3.10.2
       flag ["ocaml"; "native"; "compile"] & A"-annot"; *)
-      flag ["ocaml"; "compile"] & S[A"-warn-error"; A"A"];
 
-      flag ["ocaml"; "compile"] & S[A"-package"; A packs];
+      flag ["ocaml"; "compile"] & S[A"-package"; A packs; A"-package"; A"compiler-libs.toplevel"];
       flag ["ocaml"; "ocamldep"] & S[A"-package"; A packs];
       flag ["ocaml"; "doc"] & S[A"-package"; A packs];
       flag ["ocaml"; "link"] & S[A"-package"; A packs];
@@ -81,14 +80,14 @@ let _ = dispatch begin function
       flag ["ocaml"; "doc"] & S[A"-hide-warnings"; A"-sort"];
 
       flag ["ocaml"; "compile"; "camlp4rf"] &
-        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4rf"];
+        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4rf"; A"-package"; A"compiler-libs.toplevel"];
       flag ["ocaml"; "ocamldep"; "camlp4rf"] &
-        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4rf"];
+        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4rf"; A"-package"; A"compiler-libs.toplevel"];
 
       flag ["ocaml"; "compile"; "camlp4of"] &
-        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4of"];
+        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4of"; A"-package"; A"compiler-libs.toplevel"];
       flag ["ocaml"; "ocamldep"; "camlp4of"] &
-        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4of"];
+        S[A"-package"; A"camlp4.lib"; A"-pp"; A"camlp4of"; A"-package"; A"compiler-libs.toplevel"];
 
       flag ["ocaml"; "compile"; "syntax_camlp4o"] &
         S[A"-syntax"; A"camlp4o"; A"-package"; A"camlp4"];

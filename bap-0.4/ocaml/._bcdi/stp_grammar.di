@@ -1,1 +1,1 @@
-stp_grammar.cmi:
+stp_grammar.cmi :

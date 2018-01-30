@@ -63,6 +63,7 @@ type token =
   | RCURLY
 
 open Parsing;;
+let _ = parse_error;;
 # 2 "grammar.mly"
 (* IR Grammer file *)
 (* Author: David Brumley, Ivan Jager *)
@@ -109,7 +110,7 @@ let casttype_of_string = function
   | s -> err("Unexpected cast type '"^s^"'")
 
 
-# 113 "grammar.ml"
+# 114 "grammar.ml"
 let yytransl_const = [|
   261 (* LPAREN *);
   262 (* RPAREN *);
@@ -1047,14 +1048,14 @@ let yyact = [|
     Obj.repr(
 # 94 "grammar.mly"
                ( _1 )
-# 1051 "grammar.ml"
+# 1052 "grammar.ml"
                : Ast.program))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'revstmtlist) in
     Obj.repr(
 # 97 "grammar.mly"
                ( List.rev _1 )
-# 1058 "grammar.ml"
+# 1059 "grammar.ml"
                : 'stmtlist))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'revstmtlist) in
@@ -1062,13 +1063,13 @@ let yyact = [|
     Obj.repr(
 # 108 "grammar.mly"
                     (  _2 :: _1 )
-# 1066 "grammar.ml"
+# 1067 "grammar.ml"
                : 'revstmtlist))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 109 "grammar.mly"
   ( [] )
-# 1072 "grammar.ml"
+# 1073 "grammar.ml"
                : 'revstmtlist))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1077,7 +1078,7 @@ let yyact = [|
     Obj.repr(
 # 112 "grammar.mly"
                       ( Jmp(_2, _3) )
-# 1081 "grammar.ml"
+# 1082 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 6 : Ast.exp ) in
@@ -1088,7 +1089,7 @@ let yyact = [|
     Obj.repr(
 # 113 "grammar.mly"
                                              ( CJmp(_2, _4, _6, _7)  )
-# 1092 "grammar.ml"
+# 1093 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : string) in
@@ -1097,7 +1098,7 @@ let yyact = [|
     Obj.repr(
 # 114 "grammar.mly"
                             ( Special(_2, _3))
-# 1101 "grammar.ml"
+# 1102 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 4 : 'lval) in
@@ -1107,7 +1108,7 @@ let yyact = [|
     Obj.repr(
 # 115 "grammar.mly"
                               ( Move(_1, _3, _4) )
-# 1111 "grammar.ml"
+# 1112 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 4 : 'lval) in
@@ -1117,7 +1118,7 @@ let yyact = [|
     Obj.repr(
 # 116 "grammar.mly"
                              ( Move(_1, _3, _4) )
-# 1121 "grammar.ml"
+# 1122 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1126,7 +1127,7 @@ let yyact = [|
     Obj.repr(
 # 117 "grammar.mly"
                        ( Halt(_2, _3) )
-# 1130 "grammar.ml"
+# 1131 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1135,7 +1136,7 @@ let yyact = [|
     Obj.repr(
 # 118 "grammar.mly"
                          ( Assert(_2, _3) )
-# 1139 "grammar.ml"
+# 1140 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : string) in
@@ -1143,7 +1144,7 @@ let yyact = [|
     Obj.repr(
 # 119 "grammar.mly"
                  ( Label(Name _2, _3) )
-# 1147 "grammar.ml"
+# 1148 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : Big_int.big_int) in
@@ -1151,7 +1152,7 @@ let yyact = [|
     Obj.repr(
 # 120 "grammar.mly"
                  ( Label(Addr (int64_of_big_int _2), _3) )
-# 1155 "grammar.ml"
+# 1156 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : string) in
@@ -1159,21 +1160,21 @@ let yyact = [|
     Obj.repr(
 # 121 "grammar.mly"
                 ( Comment(_1, _2) )
-# 1163 "grammar.ml"
+# 1164 "grammar.ml"
                : 'stmt))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : Big_int.big_int) in
     Obj.repr(
 # 125 "grammar.mly"
       ( _1 )
-# 1170 "grammar.ml"
+# 1171 "grammar.ml"
                : 'plusminusint))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : Big_int.big_int) in
     Obj.repr(
 # 126 "grammar.mly"
             ( minus_big_int _2 )
-# 1177 "grammar.ml"
+# 1178 "grammar.ml"
                : 'plusminusint))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 9 : string) in
@@ -1184,7 +1185,7 @@ let yyact = [|
     Obj.repr(
 # 129 "grammar.mly"
                                                                  ( {name=_1; mem=true; t=_10; index=int64_of_big_int _3; value=_6; usage=RD; (* XXX fix me *) taint=Taint(int_of_big_int _8)} )
-# 1188 "grammar.ml"
+# 1189 "grammar.ml"
                : Type.context))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 6 : string) in
@@ -1194,13 +1195,13 @@ let yyact = [|
     Obj.repr(
 # 130 "grammar.mly"
                                             ( {name=_1; mem=false; t=_7; index=0L; value=_3; usage=RD; (* XXX fix me *) taint=Taint(int_of_big_int _5)} )
-# 1198 "grammar.ml"
+# 1199 "grammar.ml"
                : Type.context))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 133 "grammar.mly"
      ( [] )
-# 1204 "grammar.ml"
+# 1205 "grammar.ml"
                : 'attrs))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'attr) in
@@ -1208,7 +1209,7 @@ let yyact = [|
     Obj.repr(
 # 134 "grammar.mly"
              ( _1 :: _2 )
-# 1212 "grammar.ml"
+# 1213 "grammar.ml"
                : 'attrs))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : string) in
@@ -1216,7 +1217,7 @@ let yyact = [|
     Obj.repr(
 # 137 "grammar.mly"
                ( mk_attr _2 _3 )
-# 1220 "grammar.ml"
+# 1221 "grammar.ml"
                : 'attr))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : string) in
@@ -1224,7 +1225,7 @@ let yyact = [|
     Obj.repr(
 # 138 "grammar.mly"
                 ( Context(_3) )
-# 1228 "grammar.ml"
+# 1229 "grammar.ml"
                : 'attr))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : string) in
@@ -1234,34 +1235,34 @@ let yyact = [|
             ( 
     Scope.get_lval _1 _2
   )
-# 1238 "grammar.ml"
+# 1239 "grammar.ml"
                : 'lval))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 146 "grammar.mly"
   ( None )
-# 1244 "grammar.ml"
+# 1245 "grammar.ml"
                : 'opttyp))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'typ) in
     Obj.repr(
 # 147 "grammar.mly"
             ( Some(_2) )
-# 1251 "grammar.ml"
+# 1252 "grammar.ml"
                : 'opttyp))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'styp) in
     Obj.repr(
 # 150 "grammar.mly"
        (_1)
-# 1258 "grammar.ml"
+# 1259 "grammar.ml"
                : 'typ))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : 'styp) in
     Obj.repr(
 # 151 "grammar.mly"
                 ( TMem _2 )
-# 1265 "grammar.ml"
+# 1266 "grammar.ml"
                : 'typ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'styp) in
@@ -1269,14 +1270,14 @@ let yyact = [|
     Obj.repr(
 # 152 "grammar.mly"
                      ( Array(_3, _1) )
-# 1273 "grammar.ml"
+# 1274 "grammar.ml"
                : 'typ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
 # 155 "grammar.mly"
      ( typ_of_string _1 )
-# 1280 "grammar.ml"
+# 1281 "grammar.ml"
                : 'styp))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 4 : string) in
@@ -1285,14 +1286,14 @@ let yyact = [|
     Obj.repr(
 # 160 "grammar.mly"
                                ( (Scope.add_push _2 _4, _6) )
-# 1289 "grammar.ml"
+# 1290 "grammar.ml"
                : 'letstart))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 1 : Ast.exp ) in
     Obj.repr(
 # 163 "grammar.mly"
                      ( _2 )
-# 1296 "grammar.ml"
+# 1297 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1300,7 +1301,7 @@ let yyact = [|
     Obj.repr(
 # 164 "grammar.mly"
                      ( BinOp(PLUS, _1, _3) )
-# 1304 "grammar.ml"
+# 1305 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1308,7 +1309,7 @@ let yyact = [|
     Obj.repr(
 # 165 "grammar.mly"
                      ( BinOp(MINUS, _1, _3))
-# 1312 "grammar.ml"
+# 1313 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1316,7 +1317,7 @@ let yyact = [|
     Obj.repr(
 # 166 "grammar.mly"
                      ( BinOp(TIMES, _1, _3) )
-# 1320 "grammar.ml"
+# 1321 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1324,7 +1325,7 @@ let yyact = [|
     Obj.repr(
 # 167 "grammar.mly"
                      ( BinOp(DIVIDE, _1, _3) )
-# 1328 "grammar.ml"
+# 1329 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1332,7 +1333,7 @@ let yyact = [|
     Obj.repr(
 # 168 "grammar.mly"
                      ( BinOp(SDIVIDE, _1, _3) )
-# 1336 "grammar.ml"
+# 1337 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1340,7 +1341,7 @@ let yyact = [|
     Obj.repr(
 # 169 "grammar.mly"
                      ( BinOp(MOD, _1, _3) )
-# 1344 "grammar.ml"
+# 1345 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1348,7 +1349,7 @@ let yyact = [|
     Obj.repr(
 # 170 "grammar.mly"
                      ( BinOp(SMOD, _1, _3) )
-# 1352 "grammar.ml"
+# 1353 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1356,7 +1357,7 @@ let yyact = [|
     Obj.repr(
 # 171 "grammar.mly"
                      ( BinOp(LSHIFT, _1, _3) )
-# 1360 "grammar.ml"
+# 1361 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1364,7 +1365,7 @@ let yyact = [|
     Obj.repr(
 # 172 "grammar.mly"
                      ( BinOp(RSHIFT, _1, _3) )
-# 1368 "grammar.ml"
+# 1369 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1372,7 +1373,7 @@ let yyact = [|
     Obj.repr(
 # 173 "grammar.mly"
                      ( BinOp(ARSHIFT, _1, _3) )
-# 1376 "grammar.ml"
+# 1377 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1380,7 +1381,7 @@ let yyact = [|
     Obj.repr(
 # 174 "grammar.mly"
                      ( BinOp(AND, _1, _3) )
-# 1384 "grammar.ml"
+# 1385 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1388,7 +1389,7 @@ let yyact = [|
     Obj.repr(
 # 175 "grammar.mly"
                      ( BinOp(OR, _1, _3) )
-# 1392 "grammar.ml"
+# 1393 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1396,7 +1397,7 @@ let yyact = [|
     Obj.repr(
 # 176 "grammar.mly"
                      ( BinOp(XOR,  _1, _3) )
-# 1400 "grammar.ml"
+# 1401 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1404,7 +1405,7 @@ let yyact = [|
     Obj.repr(
 # 177 "grammar.mly"
                           ( BinOp(EQ, _1, _3) )
-# 1408 "grammar.ml"
+# 1409 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1412,7 +1413,7 @@ let yyact = [|
     Obj.repr(
 # 179 "grammar.mly"
                      ( BinOp(NEQ, _1, _3) )
-# 1416 "grammar.ml"
+# 1417 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1420,7 +1421,7 @@ let yyact = [|
     Obj.repr(
 # 180 "grammar.mly"
                      ( BinOp(LT, _1, _3) )
-# 1424 "grammar.ml"
+# 1425 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1428,7 +1429,7 @@ let yyact = [|
     Obj.repr(
 # 181 "grammar.mly"
                      ( BinOp(LE,  _1, _3) )
-# 1432 "grammar.ml"
+# 1433 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1436,7 +1437,7 @@ let yyact = [|
     Obj.repr(
 # 182 "grammar.mly"
                      ( BinOp(SLT, _1, _3) )
-# 1440 "grammar.ml"
+# 1441 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1444,7 +1445,7 @@ let yyact = [|
     Obj.repr(
 # 183 "grammar.mly"
                      ( BinOp(SLE, _1, _3) )
-# 1448 "grammar.ml"
+# 1449 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1452,7 +1453,7 @@ let yyact = [|
     Obj.repr(
 # 185 "grammar.mly"
                      ( BinOp(LT,  _3, _1) )
-# 1456 "grammar.ml"
+# 1457 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1460,7 +1461,7 @@ let yyact = [|
     Obj.repr(
 # 186 "grammar.mly"
                      ( BinOp(LE,  _3, _1) )
-# 1464 "grammar.ml"
+# 1465 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1468,7 +1469,7 @@ let yyact = [|
     Obj.repr(
 # 187 "grammar.mly"
                      ( BinOp(SLT, _3, _1) )
-# 1472 "grammar.ml"
+# 1473 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Ast.exp ) in
@@ -1476,21 +1477,21 @@ let yyact = [|
     Obj.repr(
 # 188 "grammar.mly"
                      ( BinOp(SLE, _3, _1) )
-# 1480 "grammar.ml"
+# 1481 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : Ast.exp ) in
     Obj.repr(
 # 189 "grammar.mly"
                      ( UnOp(NOT, _2) )
-# 1487 "grammar.ml"
+# 1488 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 0 : Ast.exp ) in
     Obj.repr(
 # 190 "grammar.mly"
                            ( UnOp(NEG, _2) )
-# 1494 "grammar.ml"
+# 1495 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 2 : string) in
@@ -1498,21 +1499,21 @@ let yyact = [|
     Obj.repr(
 # 191 "grammar.mly"
                            ( Unknown(_2, _4) )
-# 1502 "grammar.ml"
+# 1503 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : string) in
     Obj.repr(
 # 192 "grammar.mly"
                      ( Lab(_1) )
-# 1509 "grammar.ml"
+# 1510 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : 'lval) in
     Obj.repr(
 # 193 "grammar.mly"
                      ( Var(_1) )
-# 1516 "grammar.ml"
+# 1517 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _2 = (Parsing.peek_val __caml_parser_env 4 : Ast.exp ) in
@@ -1521,7 +1522,7 @@ let yyact = [|
     Obj.repr(
 # 195 "grammar.mly"
       ( Ite(_2, _4, _6) )
-# 1525 "grammar.ml"
+# 1526 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : 'letstart) in
@@ -1531,7 +1532,7 @@ let yyact = [|
                      ( Scope.pop();
 		       let (x,y) = _1 in
 		       Let(x,y, _3) )
-# 1535 "grammar.ml"
+# 1536 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _3 = (Parsing.peek_val __caml_parser_env 6 : Big_int.big_int) in
@@ -1540,7 +1541,7 @@ let yyact = [|
     Obj.repr(
 # 199 "grammar.mly"
                                                          ( Extract(_3, _5, _8) )
-# 1544 "grammar.ml"
+# 1545 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _4 = (Parsing.peek_val __caml_parser_env 4 : Ast.exp ) in
@@ -1548,7 +1549,7 @@ let yyact = [|
     Obj.repr(
 # 200 "grammar.mly"
                                                          ( Concat(_4, _7) )
-# 1552 "grammar.ml"
+# 1553 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 5 : string) in
@@ -1557,19 +1558,19 @@ let yyact = [|
     Obj.repr(
 # 202 "grammar.mly"
     ( Cast(casttype_of_string _1, _3, _5) )
-# 1561 "grammar.ml"
+# 1562 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 203 "grammar.mly"
                      ( exp_true )
-# 1567 "grammar.ml"
+# 1568 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 204 "grammar.mly"
                      ( exp_false )
-# 1573 "grammar.ml"
+# 1574 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 2 : Big_int.big_int) in
@@ -1577,7 +1578,7 @@ let yyact = [|
     Obj.repr(
 # 205 "grammar.mly"
                      ( Int(_1, _3) )
-# 1581 "grammar.ml"
+# 1582 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 10 : Ast.exp ) in
@@ -1589,7 +1590,7 @@ let yyact = [|
     Obj.repr(
 # 207 "grammar.mly"
       ( Store(_1, _4, _11, _6, _9) )
-# 1593 "grammar.ml"
+# 1594 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 7 : Ast.exp ) in
@@ -1599,50 +1600,50 @@ let yyact = [|
     Obj.repr(
 # 208 "grammar.mly"
                                                    ( Load(_1, _3, _5, _8) )
-# 1603 "grammar.ml"
+# 1604 "grammar.ml"
                : Ast.exp ))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 211 "grammar.mly"
         ( exp_true )
-# 1609 "grammar.ml"
+# 1610 "grammar.ml"
                : 'endian))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 212 "grammar.mly"
           ( exp_false )
-# 1615 "grammar.ml"
+# 1616 "grammar.ml"
                : 'endian))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 0 : Ast.exp ) in
     Obj.repr(
 # 213 "grammar.mly"
        ( _1 )
-# 1622 "grammar.ml"
+# 1623 "grammar.ml"
                : 'endian))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 216 "grammar.mly"
        ( () )
-# 1628 "grammar.ml"
+# 1629 "grammar.ml"
                : 'semi))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 217 "grammar.mly"
   ( () )
-# 1634 "grammar.ml"
+# 1635 "grammar.ml"
                : 'semi))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 220 "grammar.mly"
          (())
-# 1640 "grammar.ml"
+# 1641 "grammar.ml"
                : 'assign))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 221 "grammar.mly"
         (())
-# 1646 "grammar.ml"
+# 1647 "grammar.ml"
                : 'assign))
 (* Entry program *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

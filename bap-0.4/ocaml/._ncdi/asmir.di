@@ -1,1 +1,1 @@
-asmir.cmi: var.cmi libbfd.cmi libasmir.cmi ast.cmx
+asmir.cmi : var.cmi libbfd.cmi libasmir.cmi ast.cmx

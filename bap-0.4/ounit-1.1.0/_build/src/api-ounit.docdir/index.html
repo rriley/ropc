@@ -12,15 +12,17 @@
 <link title="OUnitDiff" rel="Chapter" href="OUnitDiff.html"><title>OUnit user guide</title>
 </head>
 <body>
-<center><h1>OUnit user guide</h1></center>
-<a href="index_types.html">Index of types</a><br>
-<a href="index_values.html">Index of values</a><br>
-<a href="index_modules.html">Index of modules</a><br>
-<a href="index_module_types.html">Index of module types</a><br>
+<h1>OUnit user guide</h1>
+<ul class="indexlist">
+<li><a href="index_types.html">Index of types</a></li>
+<li><a href="index_values.html">Index of values</a></li>
+<li><a href="index_modules.html">Index of modules</a></li>
+<li><a href="index_module_types.html">Index of module types</a></li>
+</ul>
 
 <p>
 
-<span id="2_WhatisunitTesting"><h2>What is unit Testing?</h2></span>
+<h2 id="2_WhatisunitTesting">What is unit Testing?</h2>
 <p>
 
 A test-oriented methodology for software development is most
@@ -34,7 +36,7 @@ group them into suites, and execute them, with the framework
 checking the results automatically.
 <p>
 
-<span id="2_GettingStarted"><h2>Getting Started</h2></span>
+<h2 id="2_GettingStarted">Getting Started</h2>
 <p>
 
 The basic principle of a test suite is to have a file <i>test.ml</i> which will
@@ -42,11 +44,11 @@ contain the tests, and an OCaml module under test, named <i>foo.ml</i>.
 <p>
 
 File <i>foo.ml</i>:
-<pre></pre><code class="code"><span class="comment">(*&nbsp;The&nbsp;functions&nbsp;we&nbsp;wish&nbsp;to&nbsp;test&nbsp;*)</span><br>
+<pre class="codepre"><code class="code"><span class="comment">(*&nbsp;The&nbsp;functions&nbsp;we&nbsp;wish&nbsp;to&nbsp;test&nbsp;*)</span><br>
 <span class="keyword">let</span>&nbsp;unity&nbsp;x&nbsp;=&nbsp;x;;<br>
 <span class="keyword">let</span>&nbsp;funix&nbsp;()=&nbsp;0;;<br>
 <span class="keyword">let</span>&nbsp;fgeneric&nbsp;()&nbsp;=&nbsp;failwith&nbsp;<span class="string">"Not&nbsp;implemented"</span>;;<br>
-</code><pre></pre>
+</code></pre>
 <p>
 
 The main point of a test is to check that the function under test has the
@@ -65,7 +67,7 @@ The most useful functions are:<ul>
 </ul>
 
 File <i>test.ml</i>:
-<pre></pre><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
+<pre class="codepre"><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
 <br>
 <span class="keyword">let</span>&nbsp;test1&nbsp;()&nbsp;=&nbsp;assert_equal&nbsp;<span class="string">"x"</span>&nbsp;(<span class="constructor">Foo</span>.unity&nbsp;<span class="string">"x"</span>);;&nbsp;<br>
 <br>
@@ -81,32 +83,32 @@ File <i>test.ml</i>:
 <span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<br>
 &nbsp;&nbsp;run_test_tt_main&nbsp;suite<br>
 ;;<br>
-</code><pre></pre>
+</code></pre>
 <p>
 
 And compile the module
 <p>
 
-<pre></pre><code class="code">$&nbsp;ocamlfind&nbsp;ocamlc&nbsp;-o&nbsp;test&nbsp;-package&nbsp;oUnit&nbsp;-linkpkg&nbsp;-g&nbsp;foo.ml&nbsp;test.ml<br>
-</code><pre></pre>
+<pre class="codepre"><code class="code">$&nbsp;ocamlfind&nbsp;ocamlc&nbsp;-o&nbsp;test&nbsp;-package&nbsp;oUnit&nbsp;-linkpkg&nbsp;-g&nbsp;foo.ml&nbsp;test.ml<br>
+</code></pre>
 <p>
 
 A executable named "test" will be created. When run it produces the
 following output.
 <p>
 
-<pre></pre><code class="code">$&nbsp;./tests<br>
+<pre class="codepre"><code class="code">$&nbsp;./tests<br>
 ..<br>
 <span class="constructor">Ran</span>:&nbsp;2&nbsp;tests&nbsp;<span class="keyword">in</span>:&nbsp;0.00&nbsp;<span class="constructor">Seconds</span><br>
 <span class="constructor">OK</span><br>
-</code><pre></pre>
+</code></pre>
 <p>
 
 When using <a href="OUnit.html#VALrun_test_tt_main"><code class="code"><span class="constructor">OUnit</span>.run_test_tt_main</code></a>, a non zero exit code signals that the
 test suite was not successful.
 <p>
 
-<span id="2_Advancedusage"><h2>Advanced usage</h2></span>
+<h2 id="2_Advancedusage">Advanced usage</h2>
 <p>
 
 The topics, cover here, are only for advanced users who wish to unravel the 
@@ -115,11 +117,11 @@ power of OUnit.
 
 <br>
 <table class="indextable">
-<tr><td><a href="OUnit.html">OUnit</a></td><td><div class="info">
+<tr><td class="module"><a href="OUnit.html">OUnit</a></td><td><div class="info">
 Unit test building blocks
 </div>
 </td></tr>
-<tr><td><a href="OUnitDiff.html">OUnitDiff</a></td><td><div class="info">
+<tr><td class="module"><a href="OUnitDiff.html">OUnitDiff</a></td><td><div class="info">
 Unit tests for collection of elements
 </div>
 </td></tr>
@@ -127,7 +129,7 @@ Unit tests for collection of elements
 
 <p>
 
-<span id="3_Errorreporting"><h3>Error reporting</h3></span>
+<h3 id="3_Errorreporting">Error reporting</h3>
 <p>
 
 The error reporting part of OUnit is quite important. If you want to identify
@@ -146,7 +148,7 @@ Here is a list of thing you can display:<ul>
   equal</code></li>
 </ul>
 
-<pre></pre><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
+<pre class="codepre"><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
 <br>
 <span class="keyword">let</span>&nbsp;_&nbsp;=&nbsp;<br>
 &nbsp;&nbsp;<span class="string">"mytest"</span>&gt;::<br>
@@ -157,10 +159,10 @@ Here is a list of thing you can display:<ul>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Foo</span>.unity&nbsp;1))<br>
 ;;<br>
-</code><pre></pre>
+</code></pre>
 <p>
 
-<span id="3_Commandlinearguments"><h3>Command line arguments</h3></span>
+<h3 id="3_Commandlinearguments">Command line arguments</h3>
 <p>
 
 <a href="OUnit.html#VALrun_test_tt_main"><code class="code"><span class="constructor">OUnit</span>.run_test_tt_main</code></a> already provides a set of command line argument to 
@@ -177,7 +179,7 @@ It is also possible to add your own command-line arguments. You should do it
 if you want to define some extra arguments. For example:
 <p>
 
-<pre></pre><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
+<pre class="codepre"><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
 <br>
 <span class="keyword">let</span>&nbsp;my_program_to_test&nbsp;=&nbsp;<br>
 &nbsp;&nbsp;ref&nbsp;<span class="constructor">None</span><br>
@@ -198,10 +200,10 @@ if you want to define some extra arguments. For example:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"fn&nbsp;Program&nbsp;to&nbsp;test"</span>]<br>
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="string">"test1"</span>&nbsp;&gt;::&nbsp;test1)<br>
 ;;<br>
-</code><pre></pre>
+</code></pre>
 <p>
 
-<span id="3_Skipandtodotests"><h3>Skip and todo tests</h3></span>
+<h3 id="3_Skipandtodotests">Skip and todo tests</h3>
 <p>
 
 Tests are not always meaningful and can even fail because something is missing 
@@ -214,7 +216,7 @@ under test, you know that some tests will just fail. You can mark these tests
 as to do tests, this way they will be reported differently in your test suite.
 <p>
 
-<pre></pre><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
+<pre class="codepre"><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
 <br>
 <span class="keyword">let</span>&nbsp;_&nbsp;=<br>
 &nbsp;&nbsp;<span class="string">"allfuns"</span>&nbsp;&gt;:::<br>
@@ -234,10 +236,10 @@ as to do tests, this way they will be reported differently in your test suite.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<span class="constructor">Foo</span>.fgeneric&nbsp;()));<br>
 &nbsp;&nbsp;]<br>
 ;;<br>
-</code><pre></pre>
+</code></pre>
 <p>
 
-<span id="3_EffectiveOUnit"><h3>Effective OUnit</h3></span>
+<h3 id="3_EffectiveOUnit">Effective OUnit</h3>
 <p>
 
 This section is about general tips about unit testing and OUnit. It is the
@@ -266,7 +268,7 @@ result of some years using OUnit in real world applications.
   <a href="OUnit.html#VAL(>:::)"><code class="code"><span class="constructor">OUnit</span>.(&gt;:::)</code></a> are your friends. For example:</li>
 </ul>
 
-<pre></pre><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
+<pre class="codepre"><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
 <br>
 <span class="keyword">let</span>&nbsp;_&nbsp;=<br>
 &nbsp;&nbsp;<span class="string">"Family"</span>&gt;:::<br>
@@ -282,7 +284,7 @@ result of some years using OUnit in real world applications.
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"defg"</span>,&nbsp;<span class="string">"defg"</span>;<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string">"wxyz"</span>,&nbsp;<span class="string">"wxyz"</span>])<br>
 ;;<br>
-</code><pre></pre>
+</code></pre>
 <p>
 <ul>
 <li>test failures and successes: the most obvious thing you want to test are
@@ -299,7 +301,7 @@ result of some years using OUnit in real world applications.
   tests run before.</li>
 </ul>
 
-<pre></pre><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
+<pre class="codepre"><code class="code"><span class="keyword">open</span>&nbsp;<span class="constructor">OUnit</span>;;<br>
 <br>
 <span class="keyword">let</span>&nbsp;_&nbsp;=<br>
 &nbsp;&nbsp;<span class="comment">(*&nbsp;We&nbsp;need&nbsp;to&nbsp;call&nbsp;a&nbsp;function&nbsp;in&nbsp;a&nbsp;particular&nbsp;directory&nbsp;*)</span><br>
@@ -314,7 +316,7 @@ result of some years using OUnit in real world applications.
 &nbsp;&nbsp;&nbsp;&nbsp;(<span class="keyword">fun</span>&nbsp;pwd&nbsp;<span class="keywordsign">-&gt;</span><br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="constructor">Sys</span>.chdir&nbsp;pwd)<br>
 ;;<br>
-</code><pre></pre><ul>
+</code></pre><ul>
 <li>separate your test: OUnit test code should live outside the code under tests.
   This allow to drop the dependency on OUnit when distributing your
   library/application. This also enables people to easily make a difference from

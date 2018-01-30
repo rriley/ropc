@@ -1,1 +1,1 @@
-var.cmi: type.cmi
+var.cmi : type.cmi

@@ -1,2 +1,2 @@
-dominator.cmo: util.cmi
-dominator.cmx: util.cmx
+dominator.cmo : util.cmi
+dominator.cmx : util.cmx

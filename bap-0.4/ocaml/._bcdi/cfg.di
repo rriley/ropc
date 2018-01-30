@@ -1,1 +1,1 @@
-cfg.cmi: type.cmi ssa.cmo ast.cmo
+cfg.cmi : type.cmi ssa.cmo ast.cmo

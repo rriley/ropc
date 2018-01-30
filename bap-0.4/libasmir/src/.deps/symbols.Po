@@ -1,21 +1,21 @@
-symbols.o: symbols.c ../include/asm_program.h /usr/include/bfd.h \
- /usr/include/ansidecl.h /usr/include/symcat.h /usr/include/dis-asm.h \
- /usr/include/stdio.h /usr/include/features.h \
- /usr/include/i386-linux-gnu/bits/predefs.h \
+symbols.o: symbols.c /usr/include/stdc-predef.h ../include/asm_program.h \
+ /usr/include/bfd.h /usr/include/ansidecl.h \
+ /usr/include/i386-linux-gnu/bits/wordsize.h /usr/include/symcat.h \
+ /usr/include/i386-linux-gnu/sys/stat.h /usr/include/features.h \
  /usr/include/i386-linux-gnu/sys/cdefs.h \
- /usr/include/i386-linux-gnu/bits/wordsize.h \
  /usr/include/i386-linux-gnu/gnu/stubs.h \
  /usr/include/i386-linux-gnu/gnu/stubs-32.h \
- /usr/lib/gcc/i686-linux-gnu/4.6.1/include/stddef.h \
  /usr/include/i386-linux-gnu/bits/types.h \
- /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/libio.h \
- /usr/include/_G_config.h /usr/include/wchar.h \
- /usr/lib/gcc/i686-linux-gnu/4.6.1/include/stdarg.h \
+ /usr/include/i386-linux-gnu/bits/typesizes.h /usr/include/time.h \
+ /usr/include/i386-linux-gnu/bits/stat.h /usr/include/dis-asm.h \
+ /usr/include/stdio.h /usr/lib/gcc/i686-linux-gnu/5/include/stddef.h \
+ /usr/include/libio.h /usr/include/_G_config.h /usr/include/wchar.h \
+ /usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h \
  /usr/include/i386-linux-gnu/bits/stdio_lim.h \
  /usr/include/i386-linux-gnu/bits/sys_errlist.h \
  /usr/include/i386-linux-gnu/bits/stdio.h \
  /usr/include/i386-linux-gnu/bits/stdio2.h /usr/include/bfd.h \
- ../include/common.h /usr/lib/gcc/i686-linux-gnu/4.6.1/include/stdint.h \
+ ../include/common.h /usr/lib/gcc/i686-linux-gnu/5/include/stdint.h \
  /usr/include/stdint.h /usr/include/i386-linux-gnu/bits/wchar.h \
  /usr/include/errno.h /usr/include/i386-linux-gnu/bits/errno.h \
  /usr/include/linux/errno.h /usr/include/i386-linux-gnu/asm/errno.h \
@@ -24,8 +24,11 @@ symbols.o: symbols.c ../include/asm_program.h /usr/include/bfd.h \
  /usr/include/i386-linux-gnu/bits/string.h \
  /usr/include/i386-linux-gnu/bits/string2.h /usr/include/endian.h \
  /usr/include/i386-linux-gnu/bits/endian.h \
- /usr/include/i386-linux-gnu/bits/byteswap.h /usr/include/stdlib.h \
+ /usr/include/i386-linux-gnu/bits/byteswap.h \
+ /usr/include/i386-linux-gnu/bits/byteswap-16.h /usr/include/stdlib.h \
  /usr/include/i386-linux-gnu/bits/string3.h
+
+/usr/include/stdc-predef.h:
 
 ../include/asm_program.h:
 
@@ -33,29 +36,33 @@ symbols.o: symbols.c ../include/asm_program.h /usr/include/bfd.h \
 
 /usr/include/ansidecl.h:
 
+/usr/include/i386-linux-gnu/bits/wordsize.h:
+
 /usr/include/symcat.h:
 
-/usr/include/dis-asm.h:
-
-/usr/include/stdio.h:
+/usr/include/i386-linux-gnu/sys/stat.h:
 
 /usr/include/features.h:
 
-/usr/include/i386-linux-gnu/bits/predefs.h:
-
 /usr/include/i386-linux-gnu/sys/cdefs.h:
-
-/usr/include/i386-linux-gnu/bits/wordsize.h:
 
 /usr/include/i386-linux-gnu/gnu/stubs.h:
 
 /usr/include/i386-linux-gnu/gnu/stubs-32.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.6.1/include/stddef.h:
-
 /usr/include/i386-linux-gnu/bits/types.h:
 
 /usr/include/i386-linux-gnu/bits/typesizes.h:
+
+/usr/include/time.h:
+
+/usr/include/i386-linux-gnu/bits/stat.h:
+
+/usr/include/dis-asm.h:
+
+/usr/include/stdio.h:
+
+/usr/lib/gcc/i686-linux-gnu/5/include/stddef.h:
 
 /usr/include/libio.h:
 
@@ -63,7 +70,7 @@ symbols.o: symbols.c ../include/asm_program.h /usr/include/bfd.h \
 
 /usr/include/wchar.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.6.1/include/stdarg.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stdarg.h:
 
 /usr/include/i386-linux-gnu/bits/stdio_lim.h:
 
@@ -77,7 +84,7 @@ symbols.o: symbols.c ../include/asm_program.h /usr/include/bfd.h \
 
 ../include/common.h:
 
-/usr/lib/gcc/i686-linux-gnu/4.6.1/include/stdint.h:
+/usr/lib/gcc/i686-linux-gnu/5/include/stdint.h:
 
 /usr/include/stdint.h:
 
@@ -108,6 +115,8 @@ symbols.o: symbols.c ../include/asm_program.h /usr/include/bfd.h \
 /usr/include/i386-linux-gnu/bits/endian.h:
 
 /usr/include/i386-linux-gnu/bits/byteswap.h:
+
+/usr/include/i386-linux-gnu/bits/byteswap-16.h:
 
 /usr/include/stdlib.h:
 

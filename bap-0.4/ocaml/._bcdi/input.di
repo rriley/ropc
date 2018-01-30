@@ -1,1 +1,1 @@
-input.cmi: grammar_scope.cmo ast.cmo
+input.cmi : grammar_scope.cmo ast.cmo

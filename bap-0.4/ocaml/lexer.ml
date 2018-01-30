@@ -1918,7 +1918,7 @@ let __ocaml_lex_tables = {
 }
 
 let rec token lexbuf =
-  __ocaml_lex_token_rec lexbuf 0
+    __ocaml_lex_token_rec lexbuf 0
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -2283,16 +2283,17 @@ let
                                ^": Unrecognized char '"^Char.escaped s^"'")) )
 # 2285 "lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_token_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_token_rec lexbuf __ocaml_lex_state
 
 and blkcomment lexbuf =
-  __ocaml_lex_blkcomment_rec lexbuf 140
+    __ocaml_lex_blkcomment_rec lexbuf 140
 and __ocaml_lex_blkcomment_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 # 208 "lexer.mll"
                ( store_string "/*"; enter_comment();  blkcomment lexbuf )
-# 2296 "lexer.ml"
+# 2297 "lexer.ml"
 
   | 1 ->
 # 210 "lexer.mll"
@@ -2300,70 +2301,72 @@ and __ocaml_lex_blkcomment_rec lexbuf __ocaml_lex_state =
       then 
 	(store_string "*/"; blkcomment lexbuf)
     )
-# 2304 "lexer.ml"
+# 2305 "lexer.ml"
 
   | 2 ->
 # 214 "lexer.mll"
                ( incr_linenum lexbuf; store_string_char '\n'; blkcomment lexbuf )
-# 2309 "lexer.ml"
+# 2310 "lexer.ml"
 
   | 3 ->
 # 215 "lexer.mll"
              ( ignore(eof ()) )
-# 2314 "lexer.ml"
+# 2315 "lexer.ml"
 
   | 4 ->
 let
 # 216 "lexer.mll"
        c
-# 2320 "lexer.ml"
+# 2321 "lexer.ml"
 = Lexing.sub_lexeme_char lexbuf lexbuf.Lexing.lex_start_pos in
 # 216 "lexer.mll"
                  ( store_string_char c; blkcomment lexbuf  )
-# 2324 "lexer.ml"
+# 2325 "lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_blkcomment_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_blkcomment_rec lexbuf __ocaml_lex_state
 
 and scan_str lexbuf =
-  __ocaml_lex_scan_str_rec lexbuf 149
+    __ocaml_lex_scan_str_rec lexbuf 149
 and __ocaml_lex_scan_str_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 # 219 "lexer.mll"
             (  () )
-# 2335 "lexer.ml"
+# 2337 "lexer.ml"
 
   | 1 ->
 let
 # 220 "lexer.mll"
                          c
-# 2341 "lexer.ml"
+# 2343 "lexer.ml"
 = Lexing.sub_lexeme_char lexbuf (lexbuf.Lexing.lex_start_pos + 1) in
 # 221 "lexer.mll"
             ( store_string_char (char_for_backslash c);
 	      scan_str lexbuf 
 	    )
-# 2347 "lexer.ml"
+# 2349 "lexer.ml"
 
   | 2 ->
 # 224 "lexer.mll"
              ( raise(LexError "Unterminated string") )
-# 2352 "lexer.ml"
+# 2354 "lexer.ml"
 
   | 3 ->
 let
 # 225 "lexer.mll"
           c
-# 2358 "lexer.ml"
+# 2360 "lexer.ml"
 = Lexing.sub_lexeme_char lexbuf lexbuf.Lexing.lex_start_pos in
 # 225 "lexer.mll"
               (  store_string_char c; scan_str lexbuf )
-# 2362 "lexer.ml"
+# 2364 "lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_scan_str_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_scan_str_rec lexbuf __ocaml_lex_state
 
 and cpptoken lexbuf =
-  __ocaml_lex_cpptoken_rec lexbuf 155
+    __ocaml_lex_cpptoken_rec lexbuf 155
 and __ocaml_lex_cpptoken_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -2373,38 +2376,39 @@ and __ocaml_lex_cpptoken_rec lexbuf __ocaml_lex_state =
 	     );*)
              cpptoken lexbuf
            )
-# 2377 "lexer.ml"
+# 2380 "lexer.ml"
 
   | 1 ->
 # 233 "lexer.mll"
           ( 
             token lexbuf
           )
-# 2384 "lexer.ml"
+# 2387 "lexer.ml"
 
   | 2 ->
 # 236 "lexer.mll"
         ( token lexbuf )
-# 2389 "lexer.ml"
+# 2392 "lexer.ml"
 
   | 3 ->
 # 237 "lexer.mll"
           ( cpptoken lexbuf)
-# 2394 "lexer.ml"
+# 2397 "lexer.ml"
 
   | 4 ->
 # 238 "lexer.mll"
         ( eof () )
-# 2399 "lexer.ml"
+# 2402 "lexer.ml"
 
   | 5 ->
 # 239 "lexer.mll"
       ( 
       raise(LexError "Unexpected cpp characters")
       )
-# 2406 "lexer.ml"
+# 2409 "lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_cpptoken_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_cpptoken_rec lexbuf __ocaml_lex_state
 
 ;;
 

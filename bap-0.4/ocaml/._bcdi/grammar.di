@@ -1,1 +1,1 @@
-grammar.cmi: ast.cmo
+grammar.cmi : ast.cmo

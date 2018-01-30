@@ -1,2 +1,2 @@
-debug.cmo: debug.cmi
-debug.cmx: debug.cmi
+debug.cmo : debug.cmi
+debug.cmx : debug.cmi

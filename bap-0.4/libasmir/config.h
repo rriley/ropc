@@ -14,7 +14,7 @@
 #define HAVE_LIBBFD 1
 
 /* Define to 1 if you have the `iberty' library (-liberty). */
-#define HAVE_LIBIBERTY 1
+/* #undef HAVE_LIBIBERTY */
 
 /* Define to 1 if you have the `vex' library (-lvex). */
 /* #undef HAVE_LIBVEX */

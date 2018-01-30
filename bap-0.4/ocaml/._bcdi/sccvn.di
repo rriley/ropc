@@ -1,1 +1,1 @@
-sccvn.cmi: ssa.cmo cfg.cmi
+sccvn.cmi : ssa.cmo cfg.cmi

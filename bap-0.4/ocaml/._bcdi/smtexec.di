@@ -1,1 +1,1 @@
-smtexec.cmi: formulap.cmo cfg.cmi ast.cmo
+smtexec.cmi : formulap.cmo cfg.cmi ast.cmo

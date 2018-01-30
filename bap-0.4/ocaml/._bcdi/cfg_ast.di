@@ -1,1 +1,1 @@
-cfg_ast.cmi: cfg.cmi ast.cmo
+cfg_ast.cmi : cfg.cmi ast.cmo

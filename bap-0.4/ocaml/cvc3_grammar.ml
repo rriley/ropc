@@ -16,11 +16,12 @@ type token =
   | EOF
 
 open Parsing;;
+let _ = parse_error;;
 # 2 "cvc3_grammar.mly"
   let cond_append l = function
     | None -> l
     | Some(e) -> e ::l
-# 24 "cvc3_grammar.ml"
+# 25 "cvc3_grammar.ml"
 let yytransl_const = [|
   259 (* SEMICOLON *);
   260 (* LBRACKET *);
@@ -114,20 +115,20 @@ let yyact = [|
     Obj.repr(
 # 29 "cvc3_grammar.mly"
                             ( Some(_2) )
-# 118 "cvc3_grammar.ml"
+# 119 "cvc3_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'badresult) in
     Obj.repr(
 # 30 "cvc3_grammar.mly"
                 ( None )
-# 125 "cvc3_grammar.ml"
+# 126 "cvc3_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 34 "cvc3_grammar.mly"
               ( [] )
-# 131 "cvc3_grammar.ml"
+# 132 "cvc3_grammar.ml"
                : 'assertions))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'assertion) in
@@ -135,7 +136,7 @@ let yyact = [|
     Obj.repr(
 # 35 "cvc3_grammar.mly"
                        ( cond_append _2 _1 )
-# 139 "cvc3_grammar.ml"
+# 140 "cvc3_grammar.ml"
                : 'assertions))
 ; (fun __caml_parser_env ->
     let _3 = (Parsing.peek_val __caml_parser_env 4 : string) in
@@ -143,7 +144,7 @@ let yyact = [|
     Obj.repr(
 # 39 "cvc3_grammar.mly"
                                                    ( Some(_3, _5) )
-# 147 "cvc3_grammar.ml"
+# 148 "cvc3_grammar.ml"
                : 'assertion))
 ; (fun __caml_parser_env ->
     let _3 = (Parsing.peek_val __caml_parser_env 4 : string) in
@@ -151,25 +152,25 @@ let yyact = [|
     Obj.repr(
 # 40 "cvc3_grammar.mly"
                                                    ( None )
-# 155 "cvc3_grammar.ml"
+# 156 "cvc3_grammar.ml"
                : 'assertion))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 44 "cvc3_grammar.mly"
                  ( )
-# 161 "cvc3_grammar.ml"
+# 162 "cvc3_grammar.ml"
                : 'goodresult))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 45 "cvc3_grammar.mly"
             ( )
-# 167 "cvc3_grammar.ml"
+# 168 "cvc3_grammar.ml"
                : 'goodresult))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 49 "cvc3_grammar.mly"
                ( )
-# 173 "cvc3_grammar.ml"
+# 174 "cvc3_grammar.ml"
                : 'badresult))
 (* Entry main *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

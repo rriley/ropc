@@ -1,1 +1,1 @@
-prune_unreachable.cmi: cfg.cmi
+prune_unreachable.cmi : cfg.cmi

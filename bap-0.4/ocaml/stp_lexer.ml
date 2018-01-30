@@ -488,7 +488,7 @@ let __ocaml_lex_tables = {
 }
 
 let rec token lexbuf =
-  __ocaml_lex_token_rec lexbuf 0
+    __ocaml_lex_token_rec lexbuf 0
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -576,28 +576,30 @@ let
                      ( token lexbuf )
 # 578 "stp_lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_token_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_token_rec lexbuf __ocaml_lex_state
 
 and read_num lexbuf =
-  __ocaml_lex_read_num_rec lexbuf 35
+    __ocaml_lex_read_num_rec lexbuf 35
 and __ocaml_lex_read_num_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 let
 # 28 "stp_lexer.mll"
               n
-# 590 "stp_lexer.ml"
+# 591 "stp_lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 28 "stp_lexer.mll"
                      ( VAL(Int64.of_string ("0x"^n)) )
-# 594 "stp_lexer.ml"
+# 595 "stp_lexer.ml"
 
   | 1 ->
 # 29 "stp_lexer.mll"
                      ( token lexbuf )
-# 599 "stp_lexer.ml"
+# 600 "stp_lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_read_num_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_read_num_rec lexbuf __ocaml_lex_state
 
 ;;
 

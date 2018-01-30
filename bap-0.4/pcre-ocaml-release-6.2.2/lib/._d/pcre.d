@@ -1,2 +1,2 @@
-pcre.cmo: pcre.cmi
-pcre.cmx: pcre.cmi
+pcre.cmo : pcre.cmi
+pcre.cmx : pcre.cmi

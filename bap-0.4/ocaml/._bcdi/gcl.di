@@ -1,1 +1,1 @@
-gcl.cmi: var.cmi cfg.cmi ast.cmo
+gcl.cmi : var.cmi cfg.cmi ast.cmo

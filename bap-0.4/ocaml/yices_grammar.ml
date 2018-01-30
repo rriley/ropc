@@ -15,6 +15,7 @@ type token =
   | EOF
 
 open Parsing;;
+let _ = parse_error;;
 let yytransl_const = [|
   259 (* SEMICOLON *);
   260 (* LBRACKET *);
@@ -99,20 +100,20 @@ let yyact = [|
     Obj.repr(
 # 24 "yices_grammar.mly"
                                          ( Some(_3) )
-# 103 "yices_grammar.ml"
+# 104 "yices_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'badresult) in
     Obj.repr(
 # 25 "yices_grammar.mly"
                 ( None )
-# 110 "yices_grammar.ml"
+# 111 "yices_grammar.ml"
                : (string * int64) list option))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 29 "yices_grammar.mly"
               ( [] )
-# 116 "yices_grammar.ml"
+# 117 "yices_grammar.ml"
                : 'assertions))
 ; (fun __caml_parser_env ->
     let _1 = (Parsing.peek_val __caml_parser_env 1 : 'assertion) in
@@ -120,7 +121,7 @@ let yyact = [|
     Obj.repr(
 # 30 "yices_grammar.mly"
                          ( _1 :: _2 )
-# 124 "yices_grammar.ml"
+# 125 "yices_grammar.ml"
                : 'assertions))
 ; (fun __caml_parser_env ->
     let _3 = (Parsing.peek_val __caml_parser_env 2 : string) in
@@ -128,19 +129,19 @@ let yyact = [|
     Obj.repr(
 # 34 "yices_grammar.mly"
                                   ( (_3, _4) )
-# 132 "yices_grammar.ml"
+# 133 "yices_grammar.ml"
                : 'assertion))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 38 "yices_grammar.mly"
           ( )
-# 138 "yices_grammar.ml"
+# 139 "yices_grammar.ml"
                : 'goodresult))
 ; (fun __caml_parser_env ->
     Obj.repr(
 # 42 "yices_grammar.mly"
         ( )
-# 144 "yices_grammar.ml"
+# 145 "yices_grammar.ml"
                : 'badresult))
 (* Entry main *)
 ; (fun __caml_parser_env -> raise (Parsing.YYexit (Parsing.peek_val __caml_parser_env 0)))

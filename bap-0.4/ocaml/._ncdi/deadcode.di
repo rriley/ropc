@@ -1,1 +1,1 @@
-deadcode.cmi: var.cmi cfg.cmi
+deadcode.cmi : var.cmi cfg.cmi

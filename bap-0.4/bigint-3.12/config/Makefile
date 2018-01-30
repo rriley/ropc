@@ -17,7 +17,7 @@ DBM_INCLUDES=not found
 DBM_LINK=not found
 TK_DEFS=
 TK_LINK=
-LIBBFD_LINK=-lbfd -ldl -liberty -lz
+LIBBFD_LINK=
 BYTECC=gcc
 BYTECCCOMPOPTS=-fno-defer-pop -Wall -D_FILE_OFFSET_BITS=64 -D_REENTRANT
 BYTECCLINKOPTS= -Wl,-E

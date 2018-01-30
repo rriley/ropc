@@ -1,1 +1,1 @@
-libasmir.cmi: libbfd.cmi
+libasmir.cmi : libbfd.cmi

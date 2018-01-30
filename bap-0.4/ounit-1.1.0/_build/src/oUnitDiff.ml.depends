@@ -1,1 +1,1 @@
-src/oUnitDiff.ml: *predef* Buffer Format List OUnit Set
+src/oUnitDiff.ml: Buffer Format List OUnit Set

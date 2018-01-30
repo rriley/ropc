@@ -1,1 +1,1 @@
-grammar.cmi: ast.cmx
+grammar.cmi : ast.cmx

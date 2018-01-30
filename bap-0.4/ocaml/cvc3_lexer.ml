@@ -795,7 +795,7 @@ let __ocaml_lex_tables = {
 }
 
 let rec token lexbuf =
-  __ocaml_lex_token_rec lexbuf 0
+    __ocaml_lex_token_rec lexbuf 0
 and __ocaml_lex_token_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
@@ -898,65 +898,69 @@ let
                      ( token lexbuf )
 # 900 "cvc3_lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_token_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_token_rec lexbuf __ocaml_lex_state
 
 and read_num lexbuf =
-  __ocaml_lex_read_num_rec lexbuf 53
+    __ocaml_lex_read_num_rec lexbuf 53
 and __ocaml_lex_read_num_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 let
 # 32 "cvc3_lexer.mll"
               n
-# 912 "cvc3_lexer.ml"
+# 913 "cvc3_lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 32 "cvc3_lexer.mll"
                      ( VAL(Int64.of_string ("0x"^n)) )
-# 916 "cvc3_lexer.ml"
+# 917 "cvc3_lexer.ml"
 
   | 1 ->
 # 33 "cvc3_lexer.mll"
                      ( token lexbuf )
-# 921 "cvc3_lexer.ml"
+# 922 "cvc3_lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_read_num_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_read_num_rec lexbuf __ocaml_lex_state
 
 and read_numbin lexbuf =
-  __ocaml_lex_read_numbin_rec lexbuf 56
+    __ocaml_lex_read_numbin_rec lexbuf 56
 and __ocaml_lex_read_numbin_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 let
 # 36 "cvc3_lexer.mll"
               n
-# 933 "cvc3_lexer.ml"
+# 935 "cvc3_lexer.ml"
 = Lexing.sub_lexeme lexbuf lexbuf.Lexing.lex_start_pos lexbuf.Lexing.lex_curr_pos in
 # 36 "cvc3_lexer.mll"
                      ( VAL(Int64.of_string ("0b"^n)) )
-# 937 "cvc3_lexer.ml"
+# 939 "cvc3_lexer.ml"
 
   | 1 ->
 # 37 "cvc3_lexer.mll"
                      ( token lexbuf )
-# 942 "cvc3_lexer.ml"
+# 944 "cvc3_lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_read_numbin_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_read_numbin_rec lexbuf __ocaml_lex_state
 
 and read_comment lexbuf =
-  __ocaml_lex_read_comment_rec lexbuf 59
+    __ocaml_lex_read_comment_rec lexbuf 59
 and __ocaml_lex_read_comment_rec lexbuf __ocaml_lex_state =
   match Lexing.engine __ocaml_lex_tables __ocaml_lex_state lexbuf with
       | 0 ->
 # 41 "cvc3_lexer.mll"
                      ( token lexbuf )
-# 953 "cvc3_lexer.ml"
+# 956 "cvc3_lexer.ml"
 
   | 1 ->
 # 42 "cvc3_lexer.mll"
                      ( read_comment lexbuf )
-# 958 "cvc3_lexer.ml"
+# 961 "cvc3_lexer.ml"
 
-  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; __ocaml_lex_read_comment_rec lexbuf __ocaml_lex_state
+  | __ocaml_lex_state -> lexbuf.Lexing.refill_buff lexbuf; 
+      __ocaml_lex_read_comment_rec lexbuf __ocaml_lex_state
 
 ;;
 
